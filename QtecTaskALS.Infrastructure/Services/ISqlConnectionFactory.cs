@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace QtecTaskALS.Infrastructure;
+namespace QtecTaskALS.Infrastructure.Services;
 
 public interface ISqlConnectionFactory
 {
