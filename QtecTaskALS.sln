@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtecTaskALS.Application", "QtecTaskALS.Application\QtecTaskALS.Application.csproj", "{CC6FF76C-B57F-4ECF-8261-B7E50661B829}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtecTaskALS.Domain", "QtecTaskALS.Domain\QtecTaskALS.Domain.csproj", "{A0887E4A-0CD2-4751-9241-4A09F672B970}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtecTaskALS.Infrastructure", "QtecTaskALS.Infrastructure\QtecTaskALS.Infrastructure.csproj", "{27131EC2-190B-4471-A59D-D585C46DF445}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtecTaskALS.Persistence", "QtecTaskALS.Persistence\QtecTaskALS.Persistence.csproj", "{4BBAB654-8157-4F4D-8527-5769D879E0B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QtecTaskALS.Api", "QtecTaskALS.Api\QtecTaskALS.Api.csproj", "{A5CDE517-2465-409C-B16E-B47186676E65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC6FF76C-B57F-4ECF-8261-B7E50661B829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6FF76C-B57F-4ECF-8261-B7E50661B829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6FF76C-B57F-4ECF-8261-B7E50661B829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6FF76C-B57F-4ECF-8261-B7E50661B829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0887E4A-0CD2-4751-9241-4A09F672B970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0887E4A-0CD2-4751-9241-4A09F672B970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0887E4A-0CD2-4751-9241-4A09F672B970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0887E4A-0CD2-4751-9241-4A09F672B970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27131EC2-190B-4471-A59D-D585C46DF445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27131EC2-190B-4471-A59D-D585C46DF445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27131EC2-190B-4471-A59D-D585C46DF445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27131EC2-190B-4471-A59D-D585C46DF445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BBAB654-8157-4F4D-8527-5769D879E0B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BBAB654-8157-4F4D-8527-5769D879E0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BBAB654-8157-4F4D-8527-5769D879E0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BBAB654-8157-4F4D-8527-5769D879E0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5CDE517-2465-409C-B16E-B47186676E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5CDE517-2465-409C-B16E-B47186676E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5CDE517-2465-409C-B16E-B47186676E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5CDE517-2465-409C-B16E-B47186676E65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
