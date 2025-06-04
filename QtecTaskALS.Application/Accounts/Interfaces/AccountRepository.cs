@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using QtecTaskALS.Application.Accounts.Queries;
 using QtecTaskALS.Infrastructure.Services;
 using System.Data;
 
@@ -32,5 +33,31 @@ public class AccountRepository : IAccountRepository
 
         return output.Value != DBNull.Value ? (int)output.Value : 0;
     }
+
+    public List<AccountDto> GetAccounts()
+    {
+        var accounts = new List<AccountDto>();
+
+        using var connection = new SqlConnection(_connectionFactory.CreateConnection().ConnectionString);
+        using var command = new SqlCommand("usp_GetAccounts", connection)
+        {
+            CommandType = CommandType.StoredProcedure
+        };
+
+        connection.Open();
+        using var reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            accounts.Add(new AccountDto
+            {
+                Id = reader.GetInt32(0),
+                Name = reader.GetString(1),
+                Type = reader.GetString(2)
+            });
+        }
+
+        return accounts;
+    }
+
 
 }
