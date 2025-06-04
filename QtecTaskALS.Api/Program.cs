@@ -5,6 +5,8 @@ using QtecTaskALS.Application.Accounts.Interfaces;
 using QtecTaskALS.Application.JournalEntries.Commands;
 using QtecTaskALS.Application.JournalEntries.Handlers;
 using QtecTaskALS.Application.JournalEntries.Interfaces;
+using QtecTaskALS.Application.TrialBalance.Handlers;
+using QtecTaskALS.Application.TrialBalance.Interfaces;
 using QtecTaskALS.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,8 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(CreateAccountHandler).Assembly));
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(CreateJournalEntryHandler).Assembly));
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(GetTrialBalanceQueryHandler).Assembly));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -30,6 +34,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateJournalEntryValidator
 builder.Services.AddSingleton<ISqlConnectionFactory, SqlConnectionFactory>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IJournalEntryRepository, JournalEntryRepository>();
+builder.Services.AddScoped<ITrialBalanceRepository, TrialBalanceRepository>();
 
 var app = builder.Build();
 
