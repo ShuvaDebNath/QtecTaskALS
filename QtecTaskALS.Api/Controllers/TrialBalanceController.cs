@@ -10,7 +10,6 @@ namespace QtecTaskALS.Api.Controllers
     public class TrialBalanceController : ControllerBase
     {
         private readonly IMediator _mediator;
-
         public TrialBalanceController(IMediator mediator)
         {
             _mediator = mediator;
