@@ -1,4 +1,4 @@
-using QtecTaskALS.Infrastructure;
+using QtecTaskALS.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
