@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Data.SqlClient;
 using QtecTaskALS.Application.JournalEntries.Commands;
+using QtecTaskALS.Application.JournalEntries.Queries;
 using QtecTaskALS.Infrastructure.Services;
 using System.Data;
 
@@ -64,5 +65,48 @@ public class JournalEntryRepository : IJournalEntryRepository
             throw;
         }
     }
+
+    public List<JournalEntryDto> GetAllJournalEntries()
+    {
+        var result = new List<JournalEntryDto>();
+        var map = new Dictionary<int, JournalEntryDto>();
+
+        using var connection = new SqlConnection(_connectionFactory.CreateConnection().ConnectionString);
+        using var command = new SqlCommand("usp_GetJournalEntries", connection)
+        {
+            CommandType = CommandType.StoredProcedure
+        };
+
+        connection.Open();
+        using var reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            var entryId = reader.GetInt32(0);
+
+            if (!map.TryGetValue(entryId, out var entry))
+            {
+                entry = new JournalEntryDto
+                {
+                    Id = entryId,
+                    Date = reader.GetDateTime(1),
+                    Description = reader.GetString(2),
+                    Lines = new List<Queries.JournalEntryLineDto>()
+                };
+                map[entryId] = entry;
+                result.Add(entry);
+            }
+
+            entry.Lines.Add(new Queries.JournalEntryLineDto
+            {
+                AccountId = reader.GetInt32(3),
+                Debit = reader.GetDecimal(4),
+                Credit = reader.GetDecimal(5)
+            });
+        }
+
+        return result;
+    }
+
 }
 
