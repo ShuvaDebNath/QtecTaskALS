@@ -95,3 +95,26 @@ Entries must contain at least one journal line.
 ✍️ Author
 Shuva Deb Nath
 (https://github.com/ShuvaDebNath) | (https://shuvadebnathbd.com/)
+
+
+---
+
+### 🔄 Restore the Database from Backup
+
+1. Open SQL Server Management Studio (SSMS)
+2. Right-click **Databases** → **Restore Database…**
+3. Choose:
+   - **Source**: Device
+   - Select the provided file: `/sql/QtecTaskALSDBBackup.bak`
+4. Change destination name to: `QtecAccountingDB`
+5. Click **OK** to complete the restore.
+
+Alternatively, use T-SQL:
+
+```sql
+RESTORE DATABASE QtecAccountingDB
+FROM DISK = 'C:\path\to\QtecTaskALSDBBackup.bak'
+WITH MOVE 'QtecAccountingDB' TO 'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\QtecTaskALSDBBackup.mdf',
+     MOVE 'QtecAccountingDB_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\QtecTaskALSDBBackup.ldf',
+     REPLACE;
+
