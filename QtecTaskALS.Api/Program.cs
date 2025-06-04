@@ -2,6 +2,9 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using QtecTaskALS.Application.Accounts.Commands;
 using QtecTaskALS.Application.Accounts.Interfaces;
+using QtecTaskALS.Application.JournalEntries.Commands;
+using QtecTaskALS.Application.JournalEntries.Handlers;
+using QtecTaskALS.Application.JournalEntries.Interfaces;
 using QtecTaskALS.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,13 +17,19 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(CreateAccountHandler).Assembly));
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(CreateJournalEntryHandler).Assembly));
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateAccountValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateJournalEntryValidator>();
 
 
 builder.Services.AddSingleton<ISqlConnectionFactory, SqlConnectionFactory>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IJournalEntryRepository, JournalEntryRepository>();
 
 var app = builder.Build();
 
