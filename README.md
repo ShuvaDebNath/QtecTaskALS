@@ -92,9 +92,24 @@ POST /journalentries: Total Debit must equal Total Credit.
 
 Entries must contain at least one journal line.
 
+---
+## 🧰 Troubleshooting
+Common Issue: Globalization Invariant Mode Error
+If you encounter the error: System.Globalization.InvariantMode is not supported.
+Follow these steps to resolve it:
+
+Go to:
+1=> QtecTaskALS.Api ➝ bin ➝ Debug ➝ net8.0 ➝ QtecTaskALS.Api.runtimeconfig.json
+2 => Open the runtimeconfig.json file.
+3=> Find and update (or remove) the following key: "System.Globalization.Invariant": false
+4=> Save the file.
+5=> Clean the solution
+6=> Rebuild the solution:
+
 ✍️ Author
 Shuva Deb Nath
 (https://github.com/ShuvaDebNath) | (https://shuvadebnathbd.com/)
+
 
 
 ---
